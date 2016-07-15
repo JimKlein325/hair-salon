@@ -56,7 +56,7 @@ namespace HairSalon
       Assert.Equal(testList, result);
     }
     [Fact]
-    public void Test_DeleteAll_DeletesRestaurantsFromDB()
+    public void Test_DeleteAll_DeletesStylistsFromDB()
     {
       //Arrange
       Stylist firstStylist = new Stylist("Wilma");
