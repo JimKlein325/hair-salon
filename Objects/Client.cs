@@ -7,10 +7,12 @@ namespace HairSalon.Objects
   public class Client
   {
     private int _id;
+    private int _stylist_id;
     private string _name;
 
-    public Client(string name,  int id = 0)
+    public Client(string name, int stylist_id, int id = 0)
     {
+      _stylist_id = stylist_id;
       _id = id;
       _name = name;
     }
@@ -23,6 +25,14 @@ namespace HairSalon.Objects
     public int GetId()
     {
       return _id;
+    }
+    public int GetStylistId()
+    {
+      return _stylist_id;
+    }
+    public void SetStylistID(int stylistID)
+    {
+      _stylist_id = stylistID;
     }
     public string GetName()
     {

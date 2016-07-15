@@ -22,9 +22,19 @@ namespace HairSalon
       };
       Delete["stylists/delete/{id}"] = paramaters => {
         Stylist stylist = Stylist.Find(paramaters.id);
-        Console.WriteLine("param: " + paramaters.id + " Stylist.id: " + stylist.GetId());
         stylist.Delete();
         return View["index.cshtml", Stylist.GetAll()];
+      };
+      Get["stylists/{id}/clients"] = paramaters => {
+
+        return View["index.cshtml"];
+      };
+      Get["stylists/edit/{id}"] = paramaters =>
+      {
+        return View["index.cshtml"];
+      };
+      Patch["stylists/edit/{id}"] = paramaters => {
+        return View["index.cshtml"];
       };
 
     }
