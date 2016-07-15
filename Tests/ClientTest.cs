@@ -56,9 +56,9 @@ namespace HairSalon
       //Act
       List<Client> result = Client.GetAll();
 
-      Console.WriteLine(testList[0].GetId().ToString() + "  "+ result[0].GetId().ToString());
+      //Console.WriteLine(testList[0].GetId().ToString() + "  "+ result[0].GetId().ToString());
       //Assert
-      Assert.Equal(testList[0].GetName(), result[0].GetName());
+      Assert.Equal(testList, result);
     }
     [Fact]
     public void Test_DeleteAll_DeletesClientsFromDB()
@@ -74,6 +74,66 @@ namespace HairSalon
       //Assert
       Assert.Equal(0, result);
     }
+    [Fact]
+    public void Test_Find_ForClientIDReturnsClientFromDB()
+    {
+      //Arrange
+      Client firstClient = new Client("Wilma", 1, 1);
+      Client secondClient = new Client("Fred", 2, 2);
+      firstClient.Save();
+      secondClient.Save();
+      //Act
+      Client result = Client.Find(firstClient.GetId());
+      //Assert
+      Assert.Equal(firstClient, result);
+    }
+    [Fact]
+    public void Test_Delete_DeletesClientFromDB()
+    {
+      //Arrange
+      Client firstClient = new Client("Wilma", 1, 1);
+      Client secondClient = new Client("Fred", 2, 2);
+      firstClient.Save();
+      secondClient.Save();
+      //Act
+      secondClient.Delete();
+      List<Client> testList = new List<Client> {firstClient};
+      List<Client> result = Client.GetAll();
+      //Assert
+      Assert.Equal(testList, result);
+    }
+    [Fact]
+    public void Test_Update_UpdatesClientName()
+    {
+      //Arrange
+      Client firstClient = new Client("Wilma", 5);
+      firstClient.Save();
+      string newName = "Betty";
+
+      //Act
+      firstClient.Update(newName, 5);
+      string clientUpdatedName = Client.Find(firstClient.GetId()).GetName();
+
+      //Assert
+      Assert.Equal(newName, clientUpdatedName);
+    }
+    public void Test_Update_UpdatesClientStylistID()
+    {
+      //Arrange
+      Client firstClient = new Client("Wilma", 5);
+      firstClient.Save();
+      int newStylistID = 99;
+
+      //Act
+      firstClient.Update("Wilma", newStylistID);
+      int updatedStylistID = Client.Find(firstClient.GetId()).GetStylistId();
+
+      //Assert
+      Assert.Equal(newStylistID, updatedStylistID);
+    }
+
+
+
 
     public void Dispose()
     {
