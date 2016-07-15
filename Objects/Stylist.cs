@@ -128,10 +128,10 @@ namespace HairSalon.Objects
         foundStylistName = rdr.GetString(0);
         foundStylistId = rdr.GetInt32(1);
       }
-      
+
       Stylist foundStylist = new Stylist(
-        foundStylistName,
-        foundStylistId
+      foundStylistName,
+      foundStylistId
       );
 
       if (rdr != null)
@@ -146,10 +146,58 @@ namespace HairSalon.Objects
     }
     public void Update(string name)
     {
+      SqlConnection conn = DB.Connection();
+      SqlDataReader rdr;
+      conn.Open();
+
+      SqlCommand cmd = new SqlCommand("UPDATE stylists SET name = @NewName OUTPUT INSERTED.name WHERE id = @Id;", conn);
+
+      SqlParameter newNameParameter = new SqlParameter();
+      newNameParameter.ParameterName = "@NewName";
+      newNameParameter.Value = name;
+      cmd.Parameters.Add(newNameParameter);
+
+      SqlParameter idParameter = new SqlParameter();
+      idParameter.ParameterName = "@Id";
+      idParameter.Value = this.GetId();
+      cmd.Parameters.Add(idParameter);
+
+      rdr = cmd.ExecuteReader();
+
+      while(rdr.Read())
+      {
+        this._name = rdr.GetString(0);
+      }
+
+      if (rdr != null)
+      {
+        rdr.Close();
+      }
+
+      if (conn != null)
+      {
+        conn.Close();
+      }
 
     }
     public void Delete()
     {
+      SqlConnection conn = DB.Connection();
+      conn.Open();
+
+      SqlCommand cmd = new SqlCommand("DELETE FROM stylists WHERE id = @id;", conn);
+
+      SqlParameter stylistIdParameter = new SqlParameter();
+      stylistIdParameter.ParameterName = "@id";
+      stylistIdParameter.Value = this.GetId();
+
+      cmd.Parameters.Add(stylistIdParameter);
+      cmd.ExecuteNonQuery();
+
+      if (conn != null)
+      {
+        conn.Close();
+      }
 
     }
 
