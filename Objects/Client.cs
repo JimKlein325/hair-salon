@@ -4,12 +4,12 @@ using System;
 
 namespace HairSalon.Objects
 {
-  public class Stylist
+  public class Client
   {
     private int _id;
     private string _name;
 
-    public Stylist(string name,  int id = 0)
+    public Client(string name,  int id = 0)
     {
       _id = id;
       _name = name;
@@ -17,17 +17,7 @@ namespace HairSalon.Objects
 
     public override bool Equals(System.Object otherObject)
     {
-      if (! (otherObject is Stylist))
-      {
-        return false;
-      }
-      else
-      {
-        Stylist newStylist = (Stylist)otherObject;
-        bool idIsEqual = this.GetId() == newStylist.GetId();
-        bool nameIsEqual = this.GetName() == newStylist.GetName();
-        return (idIsEqual && nameIsEqual);
-      }
+      return false;
     }
 
     public int GetId()
