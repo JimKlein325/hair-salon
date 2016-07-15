@@ -52,11 +52,8 @@ namespace HairSalon
       Client firstClient = new Client("Wilma", 1);
       firstClient.Save();
       List<Client> testList = new List<Client> {firstClient};
-
       //Act
       List<Client> result = Client.GetAll();
-
-      //Console.WriteLine(testList[0].GetId().ToString() + "  "+ result[0].GetId().ToString());
       //Assert
       Assert.Equal(testList, result);
     }
