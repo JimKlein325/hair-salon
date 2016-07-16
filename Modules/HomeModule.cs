@@ -35,11 +35,13 @@ namespace HairSalon
       };
       Get["stylists/edit/{id}"] = paramaters =>
       {
-        Client client =  Client.Find(paramaters.id);
-        return View["client_edit.cshtml", client];
+        Stylist stylist =  Stylist.Find(paramaters.id);
+        return View["stylist_edit.cshtml", stylist];
       };
       Patch["stylists/edit/{id}"] = paramaters => {
-        return View["index.cshtml"];
+        Stylist stylist = Stylist.Find(paramaters.id);
+        stylist.Update(Request.Form["stylist-name"]);
+        return View["index.cshtml", Stylist.GetAll()];
       };
 
       Get["clients/edit/{id}"] = paramaters =>

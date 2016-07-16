@@ -1,24 +1,22 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Edit Client!</title>
+  <title>Edit Stylist!</title>
   <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css'>
   <link rel='stylesheet' href="/Content/css/styles.css">
 </head>
 <body>
   <div class="page-header">
-    <h1>Edit Client</h1>
+    <h1>Edit Stylist</h1>
   </div>
   <div class="container">
-    <form action = "/clients/edit/@Model.GetId()" method = "post">
+    <form action = "/stylists/edit/@Model.GetId()" method = "post">
       <input type="hidden" name="_method" value="PATCH">
-      <label for = "client-name">Name</label>
-      <input id = "client-name" name = "client-name" type = "text" value = "@Model.GetName()">
+      <label for = "stylist-name">Name</label>
+      <input id = "stylist-name" name = "stylist-name" type = "text" value = "@Model.GetName()">
       <button type = "submit" class="btn-primary">Save Changes</button>
     </form>
     <br>
-    <br>
     <p><a href = "/">Home</a></p>
-    <p><a href = "/stylists/@Model.GetStylistId()/clients">Back</a></p>
   </div>
 </body>
