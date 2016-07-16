@@ -46,9 +46,9 @@ To set up the database and tables in SQLCMD:
 ## Microsoft SQL Server Management Studio (SSMS)
 1. Open SSMS
 2. Select File > Open > File and select the .sql files: hair_salon.sql & hair_salon_test.sql
-        * If the database does not already exist, add the following lines to the top of the script file:
-        CREATE DATABASE hair_salon;
-        GO
+* If the database does not already exist, add the following lines to the top of the script file:
+CREATE DATABASE hair_salon;
+GO
 3. Save the file.
 4. Click ! Execute.
 5. Verify that the database has been created and the schema and/or data imported.
