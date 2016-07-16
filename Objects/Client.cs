@@ -85,7 +85,6 @@ namespace HairSalon.Objects
       {
         conn.Close();
       }
-
     }
     public static List<Client> GetAll()
     {
@@ -114,7 +113,6 @@ namespace HairSalon.Objects
       {
         conn.Close();
       }
-
       return stylists;
     }
     public static void DeleteAll()
@@ -223,9 +221,6 @@ namespace HairSalon.Objects
       {
         conn.Close();
       }
-
     }
-
-
   }
 }

@@ -52,7 +52,6 @@ namespace HairSalon
       Patch["clients/edit/{id}"] = paramaters => {
         Client client = Client.Find(paramaters.id);
         client.Update(Request.Form["client-name"], client.GetStylistId());
-        //client.Save();
 
         Dictionary<string, object> model = new Dictionary<string, object>();
         Stylist stylist = Stylist.Find(client.GetStylistId());
@@ -85,9 +84,6 @@ namespace HairSalon
         model.Add("clients", allClients);
         return View["clients.cshtml", model];
       };
-
-
-
     }
   }
 }
