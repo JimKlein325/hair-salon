@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Most Groovey Hair Salon!</title>
+  <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css'>
+  <link rel='stylesheet' href="/Content/css/styles.css">
+</head>
+<body>
+  <div class="page-header">
+    <h1>@Model["stylist"].GetName()</h1>
+  </div>
+  <div class="container">
+    <h2>Clients</h2>
+    <ul>
+      @foreach (var client in Model["clients"])
+      {
+        <li>@client.GetName() | <a href="/clients/edit/@client.GetId()">Edit</a>
+          <form action = "/clients/delete/@client.GetId()" method = "post">
+            <input type="hidden" name="_method" value="DELETE">
+            <button type = "submit">Delete</button>
+          </form>
+        </li>
+      }
+    </ul>
+    <h2>Add a Client</h2>
+    <form action = "/clients/new/@Model["stylist"].GetId()" method = "post">
+      <label for = "client-name">Name</label>
+      <input id = "client-name" name = "client-name" type = "text">
+      <button type = "submit">Add Client</button>
+    </form>
+    <br>
+    <p><a href="/">Return home</a></p>
+  </div>
+</body>
+</html>
