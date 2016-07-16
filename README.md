@@ -42,6 +42,7 @@ To set up the database and tables in SQLCMD:
     https://github.com/JimKlein325/hair-salon.git
 * Compile using the PowerShell "dnx kestrel" command in the project directory
 * View the app in your browser at "localhost:5004"
+
 ## Microsoft SQL Server Management Studio (SSMS)
 1. Open SSMS
 2. Select File > Open > File and select the .sql files: hair_salon.sql & hair_salon_test.sql
