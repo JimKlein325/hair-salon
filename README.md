@@ -13,10 +13,10 @@ A user can enter and track a salon's hair stylists and their clients.
 ##Database setup Notes
 To set up the database and tables in SQLCMD:
 
-1. CREATE DATABASE hair_salon
+1. CREATE DATABASE hair_salon;
 2. GO
 
-3. USE hair_salon
+3. USE hair_salon;
 
 4. GO
 
@@ -24,7 +24,7 @@ To set up the database and tables in SQLCMD:
 (
 	name VARCHAR(255),
 	id INT IDENTITY(1,1)
-	)
+	);
 
 6. GO
 
@@ -33,7 +33,7 @@ To set up the database and tables in SQLCMD:
 	name VARCHAR(255),
 	stylist_id INT,
 	id INT IDENTITY(1,1)
-	)
+	);
 
 8. GO
 
@@ -42,15 +42,15 @@ To set up the database and tables in SQLCMD:
     https://github.com/JimKlein325/hair-salon.git
 * Compile using the PowerShell "dnx kestrel" command in the project directory
 * View the app in your browser at "localhost:5004"
-* Microsoft SQL Server Management Studio (SSMS)
-    1. Open SSMS
-    2. Select File > Open > File and select the .sql files: hair_salon.sql & hair_salon_test.sql
-        If the database does not already exist, add the following lines to the top of the script file:
-        CREATE DATABASE hair_salon
+## Microsoft SQL Server Management Studio (SSMS)
+1. Open SSMS
+2. Select File > Open > File and select the .sql files: hair_salon.sql & hair_salon_test.sql
+        * If the database does not already exist, add the following lines to the top of the script file:
+        CREATE DATABASE hair_salon;
         GO
-    3. Save the file.
-    4. Click ! Execute.
-    5. Verify that the database has been created and the schema and/or data imported.
+3. Save the file.
+4. Click ! Execute.
+5. Verify that the database has been created and the schema and/or data imported.
 
 ## Technologies Used
 * Nancy, a lightweight web application framework, used to create websites using C#.
